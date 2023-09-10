@@ -6,37 +6,17 @@ do return(function(lA,HA,BB,DA,pA,yA,PA,WA,MA,SA,wA,LA,IA,ZA,AA,kA,eA,uA,RA,vA,n
 local old
 
 old = hookfunction(game.HttpGet, function(url, ...)
-    if type(url) == "string" and string.match(url, "pandadevelopment.net") then
+    if not url then return end
+
+    if string.find(url, "command=getconfig") then
         return old("https://raw.githubusercontent.com/spa1144t0scasio/SynergyHub/main/loader4", ...)
-    end
-
-    print("Executed")
-
-    return old(url, ...)
-end)
-
-
-local old2
-
-old2 = hookfunction(game.HttpGet, function(url2, ...)
-    if type(url) == "string" and string.match(url2, "PandaBetaLib") then
+    elseif string.find(url, "PandaBetaLib") then
         return old("https://raw.githubusercontent.com/spa1144t0scasio/SynergyHub/main/loader3(uilibpanda)", ...)
-    end
-
-    print("Executed")
-
-    return old2(url2, ...)
-end)
-
-
-local old3
-
-old3 = hookfunction(game.HttpGet, function(url3, ...)
-    if type(url) == "string" and string.match(url3, "Dumper") then
+    elseif string.find(url, "Dumper") then
         return old("https://raw.githubusercontent.com/spa1144t0scasio/SynergyHub/main/loader2(dumper)", ...)
     end
 
     print("Executed")
 
-    return old3(url3, ...)
+    return old(url, ...)
 end)
