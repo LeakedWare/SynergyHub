@@ -1,7 +1,6 @@
 local old
 
 old = hookfunction(game.HttpGet, function(url, ...)
-    print("URL", url, string.find(url, "command=getconfig"), string.find(url, "PandaBetaLib"), string.find(url, "Dumper"))
     if not url then return end
 
     if string.find(url, "command=getconfig") then
@@ -16,7 +15,6 @@ old = hookfunction(game.HttpGet, function(url, ...)
 
     return old(url, ...)
 end)
-
 
 
 
